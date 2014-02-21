@@ -1,0 +1,23 @@
+name:     rvm-ree-1.8.7
+version:  0.1.0
+inherits: wercker/ubuntu12.04-webessentials@1.0.0
+type:     main
+platform: ubuntu@12.04
+packages:
+    - ruby@1.8.7-p374
+keywords:
+    - ruby
+    - rvm
+    - ree
+  script: |
+    sudo apt-get update -y
+    sudo apt-get install git zlib1g-dev libreadline-dev libqtwebkit-dev curl zip -y
+    sudo apt-get remove ruby1.9.1
+    curl -sSL https://get.rvm.io | bash -s stable
+    echo "bundler -v~>1.5.3" > $HOME/.rvm/gemsets/global.gems
+    source $HOME/.rvm/scripts/rvm
+    rvm install ree-1.8.7-2012.02
+    rvm --default use ree-1.8.7-2012.02
+    echo "gem: --no-rdoc --no-ri" >> $HOME/.gemrc
+    echo "RAILS_ENV=test" | sudo tee -a /etc/environment
+    echo "RACK_ENV=test" | sudo tee -a /etc/environment

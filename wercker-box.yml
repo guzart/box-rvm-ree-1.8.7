@@ -9,7 +9,7 @@ keywords:
     - ruby
     - rvm
     - ree
-  script: |
+script: |
     sudo apt-get update -y
     sudo apt-get install git zlib1g-dev libreadline-dev libqtwebkit-dev curl zip -y
     sudo apt-get remove ruby1.9.1

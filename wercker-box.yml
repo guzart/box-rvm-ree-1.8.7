@@ -3,8 +3,6 @@ version:  0.1.0
 inherits: wercker/ubuntu12.04-webessentials@1.0.0
 type:     main
 platform: ubuntu@12.04
-packages:
-    - ruby@1.8.7-p374
 keywords:
     - ruby
     - rvm
